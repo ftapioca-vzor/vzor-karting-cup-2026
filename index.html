@@ -3,115 +3,46 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>VZOR® Karting Cup 2026</title>
-<style>
-:root{color-scheme:dark;--bg:#08111e;--panel:#122337;--card:#192f46;--stroke:#34526c;--cyan:#26f1ff;--blue:#0070c0;--muted:#a8bfd6;--white:#f6fbff;--good:#20bd8b}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--white);font:14px/1.5 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input,select{font:inherit}button{cursor:pointer}button:disabled{cursor:not-allowed;opacity:.42}button:focus-visible,input:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}header{background:linear-gradient(115deg,#114b7a,#0a1626 77%);border-bottom:3px solid var(--cyan);padding:28px 20px;text-align:center}.eyebrow{font-size:11px;letter-spacing:2.5px;font-weight:850;color:var(--cyan)}h1{font-size:clamp(28px,5.5vw,50px);margin:8px 0 2px;line-height:1.1;letter-spacing:-1px}h2{font-size:clamp(20px,4vw,27px);margin:0 0 12px}h3{margin:0 0 8px}p{margin:8px 0}.muted{color:var(--muted)}nav{display:flex;justify-content:center;gap:6px;flex-wrap:wrap;background:#102237;padding:10px}nav button{border:0;background:#1b3752;color:#e5f4ff;border-radius:9px;padding:10px 15px}nav button[aria-current="page"]{background:var(--blue);font-weight:750}main{max-width:1080px;margin:auto;padding:22px 16px 45px}.hidden{display:none!important}.panel{border:1px solid var(--stroke);background:var(--panel);padding:20px;border-radius:14px;margin-bottom:15px}.narrow{max-width:570px;margin:15px auto}.center{text-align:center}.btn{border:1px solid transparent;border-radius:10px;padding:11px 16px;font-weight:750;background:var(--blue);color:white}.btn.secondary{background:#26445e}.btn.ghost{background:transparent;border-color:#4d6b83}.btn.warn{background:#734a23}.field{display:block;width:100%;padding:12px;margin:9px 0 13px;background:#081a2d;color:#fff;border:1px solid #50738b;border-radius:9px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.stat{background:var(--card);border:1px solid var(--stroke);border-radius:10px;padding:14px;text-align:center}.stat strong{font-size:28px;display:block}.stat small{font-size:10px;color:var(--muted);letter-spacing:.4px}.flex{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.progress{height:10px;border-radius:20px;background:#2c4359;overflow:hidden}.progress div{height:100%;background:linear-gradient(90deg,var(--blue),var(--cyan))}.notice{background:#342915;border:1px solid #795b26;color:#ffe5ac;padding:13px;border-radius:9px;margin:14px 0}.success{background:#123d32;border-color:#287f64;color:#bcfbe8}.pill{padding:3px 9px;background:#154860;color:#74f0f7;font-weight:800;border-radius:30px;font-size:11px}.people{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:14px}.person{display:flex;align-items:center;gap:12px;padding:12px;text-align:left;border:1px solid var(--stroke);background:var(--card);color:white;border-radius:11px;min-width:0}.person.active{border:2px solid var(--cyan);padding:11px;background:#154361}.person .avatar{background:#102137;border-radius:8px;width:48px;height:48px;flex:none;display:grid;place-items:center;font-size:24px;overflow:hidden}.person .avatar img{width:100%;height:100%;object-fit:contain}.person .info{min-width:0;flex:1}.person b{display:block;line-height:1.25}.person small{display:block;color:var(--muted);font-size:11px;line-height:1.3;margin-top:4px}.person .check{color:var(--good);font-weight:900}.picker{border:2px solid #2bbce5;background:#10273e;border-radius:14px;padding:17px;margin-top:17px}.characters{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.character{border:2px solid #37516b;color:#fff;border-radius:11px;background:#1b324a;display:flex;flex-direction:column;align-items:center;text-align:center;min-height:170px;padding:10px}.character.used{opacity:.36;filter:grayscale(.7)}.character.chosen{border-color:var(--cyan);background:#0e4a62}.character .art{height:87px;width:100%;display:grid;place-items:center;font-size:38px}.character .art img{max-width:100%;width:auto;height:87px;object-fit:contain}.character b{font-size:13px}.character small{font-size:11px;color:#c3d4e4;line-height:1.35;margin-top:5px}.character em{font-style:normal;color:#f8dc87;font-size:10px;margin-top:auto;padding-top:6px}.row{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid #344d65}.row:last-child{border-bottom:0}.results{width:100%;border-collapse:collapse;font-size:13px}.results td,.results th{border-bottom:1px solid #34516c;text-align:left;padding:10px 8px}.results th{color:var(--cyan)}.buttonline{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:16px 0}.foot{color:#809cb5;text-align:center;font-size:11px;padding:16px;border-top:1px solid #29435a} .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
-@media(max-width:680px){.people{grid-template-columns:1fr}.characters{grid-template-columns:repeat(3,minmax(0,1fr))}.character{min-height:145px}.character .art,.character .art img{height:68px}.character small{font-size:10px}main{padding:15px 11px 35px}.panel{padding:15px}}
-@media(max-width:420px){.characters{grid-template-columns:repeat(2,minmax(0,1fr))}.stat{padding:10px}.stat strong{font-size:22px}}
-
-/* V5.1: descripción visible tras asignar personaje */
-.person .character-description{display:block;color:#c0d6e6;font-size:11px;line-height:1.45;margin-top:5px;white-space:normal}
-.person .character-name{color:#63e5ee;font-weight:750}
-/* V5: personaje modal y panel personal */
-body.modal-open{overflow:hidden}
-.person{transition:border-color .14s,background .14s;min-height:78px}
-.person:hover{border-color:var(--cyan)}
-.person.active{border:1px solid var(--stroke);padding:12px;background:var(--card)}
-.person .avatar{width:54px;height:54px}
-.person .action{font-weight:850;color:var(--cyan);font-size:12px}
-.modal-overlay{position:fixed;inset:0;z-index:10000;background:rgba(0,5,14,.78);display:grid;place-items:center;padding:16px;backdrop-filter:blur(5px)}
-.modal-dialog{background:#0f2236;border:1px solid #426381;border-radius:16px;box-shadow:0 25px 90px rgba(0,0,0,.55);width:min(100%,960px);height:min(92dvh,850px);display:flex;flex-direction:column;overflow:hidden}
-.modal-header{padding:17px 19px;border-bottom:1px solid var(--stroke);display:flex;justify-content:space-between;align-items:start;gap:12px}
-.modal-header h2{margin:0;font-size:22px}
-.modal-sub{padding:10px 19px;color:var(--muted);font-size:12px}
-.modal-scroller{padding:4px 17px 20px;overflow:auto;flex:1;overscroll-behavior:contain}
-.modal-overlay .characters{grid-template-columns:repeat(4,minmax(0,1fr))}
-.modal-overlay .character{min-height:160px}
-.modal-overlay .character.used{opacity:.24;filter:grayscale(1);cursor:not-allowed}
-.modal-overlay .character.chosen{opacity:1;filter:none}
-.modal-overlay .character:disabled{opacity:.24}
-.rank-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:14px}
-.rank-item{border:1px solid var(--stroke);background:#182f47;border-radius:11px;padding:13px;text-align:center;min-width:0}
-.rank-item img{width:100%;height:92px;object-fit:contain}
-.rank-item .big{font-size:36px;height:92px;display:grid;place-items:center}
-.rank-item strong{display:block;margin-top:5px}
-.rank-item small{color:var(--muted)}
-@media(max-width:680px){.modal-overlay{padding:6px}.modal-dialog{height:96dvh;border-radius:11px}.modal-overlay .characters{grid-template-columns:repeat(3,minmax(0,1fr))}.modal-overlay .character{min-height:144px}.rank-list{gap:6px}.rank-item{padding:8px}.rank-item img,.rank-item .big{height:67px}}
-@media(max-width:420px){.modal-overlay .characters{grid-template-columns:repeat(2,minmax(0,1fr))}}
-
-/* V5.2 · Invitación / briefing de pilotos */
-.access-layout{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(300px,.88fr);gap:17px;align-items:start}
-.access-hero{background:radial-gradient(circle at 85% 12%,rgba(38,241,255,.13),transparent 37%),linear-gradient(140deg,#153e60,#0b1a2b 70%);border-color:#40718a;position:relative;overflow:hidden}
-.access-hero:before{content:'🏁';position:absolute;right:-12px;top:-24px;font-size:94px;opacity:.12;transform:rotate(-15deg);pointer-events:none}
-.access-kicker{display:inline-block;font-size:11px;letter-spacing:1.7px;color:#6cebf2;font-weight:850;margin-bottom:10px}
-.access-lead{font-size:16px;line-height:1.65;max-width:580px;color:#e2eef9}
-.access-highlight{color:#ffe8a9;font-weight:800}
-.event-facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:18px}
-.event-fact{background:#0c263d;border:1px solid #315f7c;border-radius:10px;padding:12px}
-.event-fact strong{display:block;font-size:13px;margin-top:5px}.event-fact small{color:#b9cfe1;font-size:11px}
-.access-poster-button{border:1px solid #3b7494;color:#dcf8ff;background:rgba(19,57,85,.7);border-radius:9px;padding:10px 12px;font-size:12px;margin-top:15px}
-.access-steps{counter-reset:steps;list-style:none;padding:0;margin:15px 0 0;display:grid;gap:11px}
-.access-steps li{display:flex;gap:11px;line-height:1.5;color:#c2d6e8;font-size:13px}
-.access-steps li:before{counter-increment:steps;content:counter(steps);width:25px;height:25px;min-width:25px;border-radius:50%;display:grid;place-items:center;background:#174c70;color:#6df1f3;font-weight:850;font-size:12px}
-.access-steps b{color:white}
-.access-login{background:linear-gradient(165deg,#17334a,#122337)}
-.access-login label{display:block;font-weight:750;margin-top:15px}
-.access-login .btn{width:100%;margin:6px 0 12px}
-.access-login .input-help{font-size:11px;color:#a9c6da;line-height:1.55}
-.access-login .error{color:#ffbaaa;font-size:12px;min-height:20px}
-.access-count{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}
-.access-count span{border:1px solid #385875;background:#17344d;border-radius:20px;padding:5px 11px;color:#c7e9f5;font-size:11px}
-.access-invite{width:100%;max-height:75vh;object-fit:contain;border-radius:10px}
-.access-invite-dialog{position:fixed;inset:0;z-index:10001;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(2,9,20,.92)}
-.access-invite-dialog .invite-wrap{max-width:550px;width:100%;max-height:94vh;overflow:auto}
-.access-invite-dialog .invite-close{display:block;margin:0 0 8px auto}
-@media(max-width:780px){.access-layout{grid-template-columns:1fr}.event-facts{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:430px){.event-facts{grid-template-columns:1fr}.access-lead{font-size:14px}}
-/* El único contenido visible antes de autenticar es el panel de acceso. */
-body.pre-auth header,body.pre-auth nav,body.pre-auth .foot{display:none!important}
-body.pre-auth main{max-width:500px;min-height:100dvh;display:grid;align-items:center;padding:26px 16px}
-body.pre-auth .access-login{margin:0}
-body.pre-auth #vote,body.pre-auth #results{display:none!important}
-.briefing-actions{margin-top:14px}
-.results td .buttonline{display:flex;gap:5px;flex-wrap:wrap}.results td .btn{padding:7px 9px;font-size:11px}.results td{vertical-align:top}
-</style>
+<link rel="stylesheet" href="styles.css">
+<meta name="description" content="Acceso personal a VZOR® Karting Cup 2026.">
+<link rel="icon" href="assets/brand/vzor-symbol.png">
 </head>
 <body class="pre-auth">
-<header><div class="eyebrow">VZOR® KARTING CUP</div><h1>VZOR® KARTING CUP 2026 🏁</h1><b style="color:var(--cyan)">LA PARRILLA DE PERSONALIDADES</b><p class="muted">LA PARRILLA SE DEFINE ANTES DE LA CARRERA</p></header>
-<nav aria-label="Navegación"><button id="tab-access" onclick="show('access')">01 · Inicio</button><button id="tab-vote" onclick="show('vote')">02 · Papeleta</button><button id="tab-results" onclick="show('results')">03 · Control</button></nav>
-<main><section id="access"></section><section id="vote" class="hidden"></section><section id="results" class="hidden"></section></main>
-<div id="modal-root"></div><div id="invitation-root"></div><div class="foot">VZOR® · FIESTA DE NAVIDAD 2026 · LA PARRILLA SE DEFINE ANTES DE LA CARRERA</div>
+<header><div class="header-inner"><img class="header-logo" src="assets/brand/vzor-light.png" width="1200" height="301" alt="VZOR"><button class="btn header-logout" onclick="logout()">Cerrar sesión</button></div></header>
+<nav aria-label="Navegación"><div class="nav-title"><h1>Karting Cup 2026</h1><span>La parrilla se define antes de la carrera</span></div><button id="tab-access" onclick="show('access')">Inicio</button><button id="tab-vote" onclick="show('vote')">Mi papeleta</button></nav>
+<main><section id="access"><noscript><div class="noscript"><img src="assets/brand/vzor-color.png" alt="VZOR" width="180"><h2>Acceso a la parrilla</h2><p>Activa JavaScript para ingresar con tu código personal.</p></div></noscript></section><section id="vote" class="hidden"></section><section id="results" class="hidden"></section></main>
+<div id="modal-root"></div><div id="invitation-root"></div><div class="foot"><img src="assets/brand/vzor-color.png" alt="VZOR" width="1200" height="301"><span>Fiesta de Navidad 2026</span><span>La parrilla de personalidades</span><button id="tab-results" onclick="show('results')">Control</button></div>
 <script>
 'use strict';
 // Configurar solo la URL PUBLICA de la Edge Function. NUNCA insertar claves secretas aqui.
 const API_URL='https://qunaajvvtkuamgwmwnjw.supabase.co/functions/v1/kart-api';
 let PARTICIPANTS=['Marcelo Ravilet','Nelson Aviles','Victor Lucero','Alfredo Aguirre','Claritza Tocuyo','Eric Aparicio','Francisco Tosso','Francisco Reyes','Jeremy Leiva','Daniel Cortez','Diego Inostroza','Matías Yáñez','Felipe Tapia','Luis Martínez','Félix Purves','Matías Hurtado','Erwin Chávez','Jorge Sepúlveda','Marcelo Rubilar'];
 const CHARACTERS=[
-['Mario','🏎️','mario.png','Acepta todos los desafíos antes de preguntar de qué se tratan.'],
-['Luigi','🟢','luigi.png','Prefiere pasar desapercibido, pero siempre termina salvando el día.'],
-['Bowser','🔥','bowser.png','Tiene una opinión fuerte sobre todo. Su presencia nunca pasa inadvertida.'],
-['Peach','👑','peach.png','Sonríe incluso cuando todo alrededor parece estar incendiándose.'],
-['Yoshi','🦖','yoshi.png','Siempre dice que sí. Termina ayudando hasta cuando nadie se lo pide.'],
-['Donkey Kong','🍌','donkey-kong.png','Si algo no funciona, prueba con un poquito más de fuerza.'],
-['Toad','🍄','toad.png','Habla rápido, camina rápido y siempre parece estar llegando tarde.'],
-['Wario','💰','wario.png','Compite hasta para elegir el almuerzo. Jamás olvida una victoria.'],
-['Waluigi','🎭','waluigi.png','Tiene una ironía preparada para cada ocasión. Él ya lo había advertido.'],
-['Rosalina','🌟','rosalina.png','Parece vivir tres pasos adelante. Nadie sabe qué está pensando.'],
-['Koopa Troopa','🐢','koopa-troopa.png','Va a su propio ritmo y, misteriosamente, siempre llega.'],
-['Bowser Jr.','🎨','bowser-jr.png','No puede ver un botón sin apretarlo. Todo empieza con «¿y si probamos…?».'],
-['Daisy','🌼','daisy.png','Tiene tanta energía que es imposible no notar su llegada.'],
-['Shy Guy','🎭','shy-guy.png','Habla poco y observa mucho. Probablemente sabe más de lo que cuenta.'],
-['King Boo','👻','king-boo.png','Desaparece cuando lo buscan y aparece cuando menos lo esperan.'],
-['Toadette','🩷','toadette.png','Sabe dónde está hasta ese archivo que perdiste hace seis meses.'],
-['Diddy Kong','🐒','diddy-kong.png','No puede estar quieto. Cuando termina algo, ya empezó cuatro cosas más.'],
-['Dry Bones','💀','dry-bones.png','Sobrevivió a tantas crisis que ya nada lo sorprende. Siempre vuelve.'],
-['Funky Kong','🏄','funky-kong.png','Siempre anda relajado, como si estuviera de vacaciones. Incluso en plena crisis parece que se está divirtiendo.'],
-['Birdo','🎀','birdo.png','Le encanta ser el centro de atención. Hasta para contar algo sencillo necesita una audiencia.'],
-['Kamek','🪄','kamek.png','Siempre tiene un truco bajo la manga. Nadie sabe cómo lo hizo, pero el problema desapareció.'],
-['Petey Piranha','🌱','petey-piranha.png','Ocupa todo el espacio disponible. Incluso intentando pasar desapercibido, es imposible.'],
-['Wiggler','🐛','wiggler.png','Es la persona más tranquila del mundo... hasta que alguien le cambia los planes.'],
-['Pauline','🎤','pauline.png','Tiene carisma de sobra. Puede transformar cualquier conversación en un espectáculo.'],
-['Peachette','✨','peachette.png','Se adapta a cualquier situación. Cambia de plan y actúa como si siempre hubiera sido la idea original.']
+['Mario','','mario.png','Acepta todos los desafíos antes de preguntar de qué se tratan.'],
+['Luigi','','luigi.png','Prefiere pasar desapercibido, pero siempre termina salvando el día.'],
+['Bowser','','bowser.png','Tiene una opinión fuerte sobre todo. Su presencia nunca pasa inadvertida.'],
+['Peach','','peach.png','Sonríe incluso cuando todo alrededor parece estar incendiándose.'],
+['Yoshi','','yoshi.png','Siempre dice que sí. Termina ayudando hasta cuando nadie se lo pide.'],
+['Donkey Kong','','donkey-kong.png','Si algo no funciona, prueba con un poquito más de fuerza.'],
+['Toad','','toad.png','Habla rápido, camina rápido y siempre parece estar llegando tarde.'],
+['Wario','','wario.png','Compite hasta para elegir el almuerzo. Jamás olvida una victoria.'],
+['Waluigi','','waluigi.png','Tiene una ironía preparada para cada ocasión. Él ya lo había advertido.'],
+['Rosalina','','rosalina.png','Parece vivir tres pasos adelante. Nadie sabe qué está pensando.'],
+['Koopa Troopa','','koopa-troopa.png','Va a su propio ritmo y, misteriosamente, siempre llega.'],
+['Bowser Jr.','','bowser-jr.png','No puede ver un botón sin apretarlo. Todo empieza con «¿y si probamos…?».'],
+['Daisy','','daisy.png','Tiene tanta energía que es imposible no notar su llegada.'],
+['Shy Guy','','shy-guy.png','Habla poco y observa mucho. Probablemente sabe más de lo que cuenta.'],
+['King Boo','','king-boo.png','Desaparece cuando lo buscan y aparece cuando menos lo esperan.'],
+['Toadette','','toadette.png','Sabe dónde está hasta ese archivo que perdiste hace seis meses.'],
+['Diddy Kong','','diddy-kong.png','No puede estar quieto. Cuando termina algo, ya empezó cuatro cosas más.'],
+['Dry Bones','','dry-bones.png','Sobrevivió a tantas crisis que ya nada lo sorprende. Siempre vuelve.'],
+['Funky Kong','','funky-kong.png','Siempre anda relajado, como si estuviera de vacaciones. Incluso en plena crisis parece que se está divirtiendo.'],
+['Birdo','','birdo.png','Le encanta ser el centro de atención. Hasta para contar algo sencillo necesita una audiencia.'],
+['Kamek','','kamek.png','Siempre tiene un truco bajo la manga. Nadie sabe cómo lo hizo, pero el problema desapareció.'],
+['Petey Piranha','','petey-piranha.png','Ocupa todo el espacio disponible. Incluso intentando pasar desapercibido, es imposible.'],
+['Wiggler','','wiggler.png','Es la persona más tranquila del mundo... hasta que alguien le cambia los planes.'],
+['Pauline','','pauline.png','Tiene carisma de sobra. Puede transformar cualquier conversación en un espectáculo.'],
+['Peachette','','peachette.png','Se adapta a cualquier situación. Cambia de plan y actúa como si siempre hubiera sido la idea original.']
 ];
 
 const MAX_UPDATES=3;
@@ -119,7 +50,7 @@ let currentUser=null,code='',state=null,draft={},editing=false,admin=false,admin
 function syncParticipants(data){if(Array.isArray(data?.participants)&&data.participants.length===19&&data.participants.every(x=>typeof x==='string'&&x.trim()))PARTICIPANTS=data.participants.slice()}
 function updateLimit(){return state?.record?.max_updates ?? MAX_UPDATES}
 function esc(s){return String(s).replace(/[&<>"']/g,x=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[x]))}
-function art(index){const c=CHARACTERS[index];return `<img src="assets/characters/${c[2]}" alt="${esc(c[0])}" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span style="display:none">${c[1]}</span>`}
+function art(index){const c=CHARACTERS[index];return `<img src="assets/characters/${c[2]}" alt="${esc(c[0])}" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span style="display:none">${esc(c[0])}</span>`}
 async function api(action,payload={}){
  if(API_URL.startsWith('PEGAR_'))throw Error('Falta configurar API_URL en index.html para conectar Supabase.');
  const controller=new AbortController();const timeout=setTimeout(()=>controller.abort(),15000);
@@ -137,58 +68,57 @@ function show(page){
  ({access:renderAccess,vote:renderVote,results:renderResults})[page]();
 }
 function eventBriefing(){return `
-<div class="panel access-hero"><div class="access-kicker">🎄 LA NAVIDAD SE CORRE EN EQUIPO</div>
-<h2>Antes de encender los motores…<br><span style="color:var(--cyan)">hay que descubrir quién es quién.</span></h2>
-<p class="access-lead">Este 18 de diciembre, VZOR® cambia las reuniones por una pista de karting. Antes de la largada tenemos una misión: <span class="access-highlight">darle a cada colega su personaje para la Karting Cup.</span></p>
-<p class="muted">¿Quién tiene alma de Bowser? ¿Quién vive tan relajado como Funky Kong? ¿Y quién sorprende a todos como Luigi? Tú decides cómo se arma nuestra parrilla.</p>
-<div class="event-facts"><div class="event-fact"><small>📅 CUÁNDO</small><strong>Viernes 18 de diciembre</strong><small>2026 · 10:30 a 16:00 hrs</small></div><div class="event-fact"><small>📍 DÓNDE</small><strong>GoKarts.cl</strong><small>Calle Valenzuela Puelma 9500, Santiago</small></div></div>
-<button type="button" class="access-poster-button" onclick="showInvitation()">🎁 Ver invitación del evento</button></div>
-<div class="panel"><div class="access-kicker">TU MISIÓN EN 4 PASOS</div><h3>Instrucciones para pilotos</h3>
+<div class="access-hero"><div class="briefing-copy">
+<h2>Antes de encender los motores… hay que descubrir quién es quién.</h2>
+<p class="access-lead">Este 18 de diciembre, VZOR® cambia las reuniones por una pista de karting. Antes de la largada tenemos una misión: darle a cada colega su personaje para la Karting Cup.</p>
+<div class="buttonline"><button class="btn" onclick="show('vote')">Ir a mi papeleta</button></div><p class="muted">¿Quién tiene alma de Bowser? ¿Quién vive tan relajado como Funky Kong? ¿Y quién sorprende a todos como Luigi? Tú decides cómo se arma nuestra parrilla.</p>
+<div class="event-facts"><div class="event-fact"><small>Cuándo</small><strong>Viernes 18 de diciembre</strong><small>2026, 10:30 a 16:00 hrs</small></div><div class="event-fact"><small>Dónde</small><strong>GoKarts.cl</strong><small>Calle Valenzuela Puelma 9500, Santiago</small></div></div>
+<button type="button" class="access-poster-button" onclick="showInvitation()">Ver invitación del evento</button></div><picture class="briefing-picture"><img class="briefing-art" src="assets/karting-vzor-pasto-horizontal.png" alt="Vista cenital de una curva de karting con el isotipo VZOR formado en el pasto" width="1536" height="1024"></picture></div>
+<h3 class="briefing-title">Instrucciones para pilotos</h3>
 <ol class="access-steps"><li><span><b>Ya ingresaste con tu código personal.</b> Puedes volver cada vez que quieras.</span></li>
 <li><span><b>Elige a un compañero.</b> Se abrirá un modal con 25 personajes; no podrás asignarte uno a ti mismo.</span></li>
 <li><span><b>Arma tu parrilla.</b> Asigna 18 personajes diferentes. Los ocupados quedan atenuados dentro del modal.</span></li>
-<li><span><b>Vuelve cuando quieras.</b> Consulta tu Top 3 personal y modifica tu papeleta hasta tres veces tras el envío inicial.</span></li></ol></div>`}
+<li><span><b>Vuelve cuando quieras.</b> Consulta tu Top 3 personal y modifica tu papeleta hasta tres veces tras el envío inicial.</span></li></ol>`}
 function renderAccess(){
  const node=document.getElementById('access');
  if(currentUser!==null){
-  node.innerHTML=eventBriefing()+`<div class="buttonline briefing-actions"><button class="btn" onclick="show('vote')">IR A MI PAPELETA →</button><button class="btn secondary" onclick="logout()">Cerrar sesión</button></div>`;
+  node.innerHTML=eventBriefing();
   return;
  }
- node.innerHTML=`<div class="panel access-login"><div style="font-size:39px">🏎️</div>
- <div class="access-kicker">VZOR® KARTING CUP 2026</div><h2>Acceso a la parrilla</h2>
+ node.innerHTML=`<div class="panel access-login"><img class="access-logo" src="assets/brand/vzor-color.png" alt="VZOR" width="1200" height="301"><h2>Acceso a la parrilla</h2>
  <p class="muted">Ingresa tu código personal para continuar.</p>
  <label for="code">Tu código de piloto</label>
- <input id="code" class="field" autocomplete="off" placeholder="Ingresa tu código individual" aria-describedby="access-error" onkeydown="if(event.key==='Enter')login()">
+ <input id="code" class="field" autocomplete="off" placeholder="Ingresa tu código individual" aria-describedby="access-error" aria-required="true" onkeydown="if(event.key==='Enter')login()">
  <div id="access-error" class="error" aria-live="polite"></div>
- <button class="btn" id="login-button" onclick="login()">ENTRAR A LA PISTA →</button>
+ <button class="btn" id="login-button" onclick="login()">Entrar a la pista</button>
  <p class="input-help">Tu código es personal. Puedes ingresar cuantas veces quieras.</p></div>`;
 }
-async function login(){const input=document.getElementById('code'),button=document.getElementById('login-button'),error=document.getElementById('access-error');error.textContent='';const submitted=input.value.trim();if(!submitted)return error.textContent='Ingresa tu código individual.';button.disabled=true;try{const data=await api('login',{code:submitted});code=submitted;syncParticipants(data);state=data;currentUser=data.participant;draft={};editing=!data.record;show('access')}catch(e){error.textContent=e.message}finally{button.disabled=false}}
-function showInvitation(){if(currentUser===null)return;document.getElementById('invitation-root').innerHTML=`<div class="access-invite-dialog" onclick="if(event.target===this)hideInvitation()"><div class="invite-wrap"><button class="btn secondary invite-close" onclick="hideInvitation()">✕ Cerrar</button><img class="access-invite" src="assets/invitacion-navidad-vzor-2026.png" alt="Invitación Navidad VZOR 2026"></div></div>`}
+async function login(){const input=document.getElementById('code'),button=document.getElementById('login-button'),error=document.getElementById('access-error');error.textContent='';input.removeAttribute('aria-invalid');const submitted=input.value.trim();if(!submitted)return error.textContent='Ingresa tu código individual.';button.disabled=true;button.setAttribute('aria-busy','true');button.textContent='Validando código…';try{const data=await api('login',{code:submitted});code=submitted;syncParticipants(data);state=data;currentUser=data.participant;draft={};editing=!data.record;show('access')}catch(e){error.textContent=e.message;input.setAttribute('aria-invalid','true')}finally{button.disabled=false;button.removeAttribute('aria-busy');button.textContent='Entrar a la pista'}}
+function showInvitation(){if(currentUser===null)return;document.getElementById('invitation-root').innerHTML=`<div class="access-invite-dialog" onclick="if(event.target===this)hideInvitation()"><div class="invite-wrap" role="dialog" aria-modal="true" aria-label="Invitación del evento"><button class="btn secondary invite-close" onclick="hideInvitation()"> Cerrar</button><img class="access-invite" src="assets/invitacion-navidad-vzor-2026.png" alt="Invitación Navidad VZOR 2026"></div></div>`}
 function hideInvitation(){document.getElementById('invitation-root').innerHTML=''}
 function colleagues(){return PARTICIPANTS.map((name,id)=>({name,id})).filter(p=>p.id!==currentUser)}
 function isComplete(values){const pairs=Object.entries(values);const valid=new Set(colleagues().map(p=>String(p.id)));return pairs.length===18&&pairs.every(([p,c])=>valid.has(p)&&Number.isInteger(c)&&c>=0&&c<25)&&new Set(pairs.map(([,c])=>c)).size===18}
-function ownTopPanel(){const top=state?.top||[],sub=state?.submitted_count||0;return `<div class="panel"><div class="flex"><div><h3>🏆 Tu Top 3 de personajes</h3><p class="muted">Los personajes que más colegas te han asignado hasta ahora.</p></div><span class="pill">${sub} papeletas registradas</span></div>${!top.length?`<div class="notice">Todavía no has recibido asignaciones. Vuelve a consultar más adelante.</div>`:`<div class="rank-list">${top.map((x,i)=>`<div class="rank-item"><span class="pill">#${i+1}</span><div class="big">${art(x.char)}</div><strong>${esc(CHARACTERS[x.char][0])}</strong><small>${x.votes} ${x.votes===1?'voto':'votos'}</small></div>`).join('')}</div><p class="muted">Este ranking es provisional y no muestra quién hizo cada elección.</p>`}</div>`}
+function ownTopPanel(){const top=state?.top||[],sub=state?.submitted_count||0;return `<details class="panel top-panel" id="own-top"><summary>Tu Top 3 de personajes</summary><div class="flex"><div><p class="muted">Los personajes que más colegas te han asignado hasta ahora.</p></div><span class="pill">${sub} papeletas registradas</span></div>${!top.length?`<div class="notice">Todavía no has recibido asignaciones. Vuelve a consultar más adelante.</div>`:`<div class="rank-list">${top.map((x,i)=>`<div class="rank-item"><span class="pill">#${i+1}</span><div class="big">${art(x.char)}</div><strong>${esc(CHARACTERS[x.char][0])}</strong><small>${x.votes} ${x.votes===1?'voto':'votos'}</small></div>`).join('')}</div><p class="muted">Este ranking es provisional y no muestra quién hizo cada elección.</p>`}</details>`}
 function startEdit(){if(!state?.record||state.closed||state.record.updates>=updateLimit())return;draft={...state.record.assignments};editing=true;renderVote()}
 function cancelEdit(){draft={};editing=false;renderVote()}
 function renderVote(){const node=document.getElementById('vote');if(currentUser===null){node.innerHTML=`<div class="panel center"><h2>Ingresa con tu código para comenzar</h2><button class="btn" onclick="show('access')">Ir al acceso</button></div>`;return}
-const rec=state.record,available=rec?(rec.max_updates??MAX_UPDATES)-rec.updates:MAX_UPDATES;let html=`<div class="flex"><div><div class="muted" style="font-size:11px">PILOTO IDENTIFICADO</div><h2>${esc(PARTICIPANTS[currentUser])}</h2></div><span class="pill">${state.closed?'VOTACIÓN CERRADA':rec?'PAPELETA REGISTRADA':'PENDIENTE DE VOTACIÓN'}</span></div><div class="buttonline"><button class="btn secondary" onclick="logout()">Cerrar sesión</button><button class="btn secondary" onclick="refreshProfile()">Actualizar mi Top 3 ↻</button><span class="muted">${available} actualizaciones disponibles</span></div>`;html+=ownTopPanel();
-if(rec&&(!editing||state.closed)){html+=`<div class="panel"><h3>Tu papeleta actual</h3><p class="muted">Puedes consultar tu Top 3 las veces que quieras. Actualizaciones utilizadas: ${rec.updates} de ${rec.max_updates??MAX_UPDATES}.</p><div class="people">${colleagues().map(p=>{const ch=rec.assignments[p.id];return `<div class="person"><span class="avatar">${art(ch)}</span><span class="info"><b>${esc(p.name)}</b><small class="character-name">${esc(CHARACTERS[ch][0])}</small><span class="character-description">${esc(CHARACTERS[ch][3])}</span></span><span class="check">✓</span></div>`}).join('')}</div><div class="buttonline"><button class="btn" ${available===0||state.closed?'disabled':''} onclick="startEdit()">${state.closed?'VOTACIÓN CERRADA':available===0?'SIN ACTUALIZACIONES DISPONIBLES':'ACTUALIZAR MI PAPELETA'}</button></div></div>`}
+const rec=state.record,available=rec?(rec.max_updates??MAX_UPDATES)-rec.updates:MAX_UPDATES;let html=`<div class="flex"><div><p class="muted">Tu papeleta</p><h2>${esc(PARTICIPANTS[currentUser])}</h2></div><span class="pill">${state.closed?'Votación cerrada':rec?'Papeleta registrada':'Pendiente de votación'}</span></div><div class="buttonline"><button class="btn secondary" onclick="refreshProfile()">Actualizar mi Top 3</button><span class="muted">${available} actualizaciones disponibles</span></div>`;html+=ownTopPanel();
+if(rec&&(!editing||state.closed)){html+=`<div class="panel"><h3>Tu papeleta actual</h3><p class="muted">Puedes consultar tu Top 3 las veces que quieras. Actualizaciones utilizadas: ${rec.updates} de ${rec.max_updates??MAX_UPDATES}.</p><div class="people">${colleagues().map(p=>{const ch=rec.assignments[p.id];return `<div class="person"><span class="avatar">${art(ch)}</span><span class="info"><b>${esc(p.name)}</b><small class="character-name">${esc(CHARACTERS[ch][0])}</small><span class="character-description">${esc(CHARACTERS[ch][3])}</span></span><span class="check"></span></div>`}).join('')}</div><div class="buttonline"><button class="btn" ${available===0||state.closed?'disabled':''} onclick="startEdit()">${state.closed?'Votación cerrada':available===0?'Sin actualizaciones':'Actualizar mi papeleta'}</button></div></div>`}
 else if(state.closed){html+=`<div class="panel">La votación está cerrada. Puedes seguir consultando tu Top 3.</div>`}
-else{const done=Object.keys(draft).length;html+=`<div class="panel"><div class="flex"><div><h3>${rec?'Edita tu parrilla':'Arma tu parrilla'}</h3><p class="muted">Toca a un compañero para abrir el modal con los personajes. Nadie viene preseleccionado.</p></div><span class="pill">${done}/18</span></div><div class="progress" style="margin:14px 0"><div style="width:${done/18*100}%"></div></div><div class="people">${colleagues().map(p=>{const ch=draft[p.id];return `<button class="person" onclick="openModal(${p.id})"><span class="avatar">${ch===undefined?'👤':art(ch)}</span><span class="info"><b>${esc(p.name)}</b><small class="${ch===undefined?'':'character-name'}">${ch===undefined?'Sin personaje · seleccionar':esc(CHARACTERS[ch][0])}</small>${ch===undefined?'':`<span class="character-description">${esc(CHARACTERS[ch][3])}</span>`}</span><span class="action">${ch===undefined?'ELEGIR →':'CAMBIAR ↗'}</span></button>`}).join('')}</div></div><div class="buttonline">${rec?'<button class="btn secondary" onclick="cancelEdit()">Cancelar edición</button>':'<button class="btn secondary" onclick="logout()">Salir sin enviar</button>'}<button class="btn" id="save-button" onclick="submit()" ${isComplete(draft)?'':'disabled'}>${rec?'GUARDAR ACTUALIZACIÓN':'ENVIAR PAPELETA INICIAL'}</button></div><p class="muted">Cada papeleta usa 18 personajes distintos de los 25 disponibles.</p>`}
+else{const done=Object.keys(draft).length;html+=`<div class="panel"><div class="flex"><div><h3>${rec?'Edita tu parrilla':'Arma tu parrilla'}</h3><p class="muted">Toca a un compañero para abrir el modal con los personajes. Nadie viene preseleccionado.</p></div><span class="pill">${done}/18</span></div><div class="progress" style="margin:var(--space-md) 0"><div style="width:${done/18*100}%"></div></div><div class="people">${colleagues().map(p=>{const ch=draft[p.id];return `<button class="person" onclick="openModal(${p.id})"><span class="avatar">${ch===undefined?esc(p.name.charAt(0)):art(ch)}</span><span class="info"><b>${esc(p.name)}</b><small class="${ch===undefined?'':'character-name'}">${ch===undefined?'Sin personaje asignado':esc(CHARACTERS[ch][0])}</small>${ch===undefined?'':`<span class="character-description">${esc(CHARACTERS[ch][3])}</span>`}</span><span class="action">${ch===undefined?'Elegir':'Cambiar'}</span></button>`}).join('')}</div></div><div class="buttonline">${rec?'<button class="btn secondary" onclick="cancelEdit()">Cancelar edición</button>':'<button class="btn secondary" onclick="logout()">Salir sin enviar</button>'}<button class="btn" id="save-button" onclick="submit()" ${isComplete(draft)?'':'disabled'}>${rec?'Guardar actualización':'Enviar papeleta'}</button></div><p class="muted">Cada papeleta usa 18 personajes distintos de los 25 disponibles.</p>`}
 node.innerHTML=html}
-async function refreshProfile(){try{state=await api('login',{code});syncParticipants(state);renderVote()}catch(e){alert(e.message)}}
-function openModal(person){if(!editing||person===currentUser||state.closed)return;modalPerson=person;priorFocus=document.activeElement;const current=draft[person],used=new Set(Object.entries(draft).filter(([p])=>Number(p)!==person).map(([,c])=>c));const cards=CHARACTERS.map((c,i)=>{const disabled=used.has(i),chosen=current===i;return `<button type="button" class="character ${disabled?'used':''} ${chosen?'chosen':''}" ${disabled?'disabled':''} onclick="choose(${i})"><span class="art">${art(i)}</span><b>${esc(c[0])}</b><small>${esc(c[3])}</small><em>${disabled?'OCUPADO':chosen?'ASIGNADO':''}</em></button>`}).join('');document.getElementById('modal-root').innerHTML=`<div class="modal-overlay" onclick="if(event.target===this)closeModal()"><div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modal-title"><div class="modal-header"><div><div class="muted">SELECCIÓN DE PERSONAJE</div><h2 id="modal-title">${esc(PARTICIPANTS[person])}</h2></div><button class="btn secondary" id="close-picker" onclick="closeModal()">✕</button></div><div class="modal-sub">${25-used.size} personajes disponibles. Los ocupados están atenuados.</div><div class="modal-scroller"><div class="characters">${cards}</div>${current!==undefined?`<div class="buttonline"><button class="btn ghost" onclick="unassign(${person})">Quitar asignación</button></div>`:''}</div></div></div>`;document.body.classList.add('modal-open');document.getElementById('close-picker').focus()}
+async function refreshProfile(){try{state=await api('login',{code});syncParticipants(state);renderVote();document.getElementById('own-top').open=true;document.getElementById('own-top').scrollIntoView({block:'start'})}catch(e){alert(e.message)}}
+function openModal(person){if(!editing||person===currentUser||state.closed)return;modalPerson=person;priorFocus=document.activeElement;const current=draft[person],used=new Set(Object.entries(draft).filter(([p])=>Number(p)!==person).map(([,c])=>c));const cards=CHARACTERS.map((c,i)=>{const disabled=used.has(i),chosen=current===i;return `<button type="button" class="character ${disabled?'used':''} ${chosen?'chosen':''}" ${disabled?'disabled':''} onclick="choose(${i})"><span class="art">${art(i)}</span><b>${esc(c[0])}</b><small>${esc(c[3])}</small><em>${disabled?'Ocupado':chosen?'Asignado':''}</em></button>`}).join('');document.getElementById('modal-root').innerHTML=`<div class="modal-overlay" onclick="if(event.target===this)closeModal()"><div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modal-title"><div class="modal-header"><div><div class="muted">Selección de personaje</div><h2 id="modal-title">${esc(PARTICIPANTS[person])}</h2></div><button class="btn secondary" id="close-picker" aria-label="Cerrar selector de personajes" onclick="closeModal()">Cerrar</button></div><div class="modal-sub">${25-used.size} personajes disponibles. Los ocupados están atenuados.</div><div class="modal-scroller"><div class="characters">${cards}</div>${current!==undefined?`<div class="buttonline"><button class="btn ghost" onclick="unassign(${person})">Quitar asignación</button></div>`:''}</div></div></div>`;document.body.classList.add('modal-open');document.getElementById('close-picker').focus()}
 function closeModal(){modalPerson=null;document.getElementById('modal-root').innerHTML='';document.body.classList.remove('modal-open');if(priorFocus&&document.contains(priorFocus))priorFocus.focus();priorFocus=null}
 function choose(character){if(modalPerson===null)return;const p=modalPerson;if(Object.entries(draft).some(([id,ch])=>Number(id)!==p&&ch===character))return;draft[p]=character;closeModal();renderVote()}
 function unassign(p){delete draft[p];closeModal();renderVote()}
 async function submit(){if(currentUser===null||!editing||!isComplete(draft))return alert('Asigna 18 personajes distintos.');if(!confirm('¿Confirmas guardar tu papeleta? El envío inicial es gratuito y luego tendrás hasta 3 actualizaciones.'))return;const btn=document.getElementById('save-button');if(btn)btn.disabled=true;try{const r=await api('submit',{code,assignments:draft});state=r;editing=false;draft={};renderVote()}catch(e){alert(e.message);if(btn)btn.disabled=false}}
 function logout(){code='';currentUser=null;draft={};editing=false;state=null;admin=false;adminKey='';finalData=null;show('access')}
-function renderResults(){let count=admin&&finalData?finalData.submitted_count:(state?.submitted_count??null);const box=document.getElementById('results');let html=`<h2>🏆 Control de carrera</h2><div class="stats"><div class="stat"><strong>${count===null?'—':count}</strong><small>PAPELETAS</small></div><div class="stat"><strong>${count===null?'—':Math.round(count/19*100)+'%'}</strong><small>PARTICIPACIÓN</small></div><div class="stat"><strong>25</strong><small>PERSONAJES</small></div></div>${count===null?'':`<div class="progress" style="margin:15px 0 18px"><div style="width:${count/19*100}%"></div></div>`}`;
-if(!admin){html+=`<div class="panel center"><div style="font-size:48px">🔒</div><h2>Resultados finales ocultos</h2><p class="muted">Cada piloto puede consultar su Top 3 con su código. Las asignaciones exclusivas se revelarán en el evento.</p><button class="btn secondary" onclick="adminLogin()">Acceso a administración</button></div>`}
+function renderResults(){let count=admin&&finalData?finalData.submitted_count:(state?.submitted_count??null);const box=document.getElementById('results');let html=`<h2> Control de carrera</h2><div class="stats"><div class="stat"><strong>${count===null?'—':count}</strong><small>Papeletas</small></div><div class="stat"><strong>${count===null?'—':Math.round(count/19*100)+'%'}</strong><small>Participación</small></div><div class="stat"><strong>25</strong><small>Personajes</small></div></div>${count===null?'':`<div class="progress" style="margin:var(--space-md) 0 var(--space-lg)"><div style="width:${count/19*100}%"></div></div>`}`;
+if(!admin){html+=`<div class="panel center"><h2>Resultados finales ocultos</h2><p class="muted">Cada piloto puede consultar su Top 3 con su código. Las asignaciones exclusivas se revelarán en el evento.</p><button class="btn secondary" onclick="adminLogin()">Acceso a administración</button></div>`}
 else{html+=`<div class="panel"><div class="flex"><h3>Administración</h3><button class="btn secondary" onclick="admin=false;adminKey='';finalData=null;renderResults()">Ocultar</button></div><p class="muted">El resultado final se calcula con las versiones vigentes de las papeletas. Cierra las votaciones antes de revelar la parrilla.</p><div class="buttonline"><button class="btn" onclick="adminLoad()">Actualizar resultados</button><button class="btn warn" onclick="changeClosed(${!finalData?.closed})">${finalData?.closed?'Reabrir votación':'Cerrar votación'}</button></div></div>`;
 if(finalData){html+=`<div class="panel"><h3>Estado: ${finalData.closed?'CERRADO':'ABIERTO'}</h3><p class="muted">${finalData.submitted_count} de 19 papeletas.</p>${finalData.closed?`<h3>Parrilla final</h3><div style="overflow-x:auto"><table class="results"><thead><tr><th>Participante</th><th>Personaje</th><th>Votos</th></tr></thead><tbody>${finalData.assignments.map(x=>`<tr><td>${esc(PARTICIPANTS[x.person])}</td><td>${esc(CHARACTERS[x.character][0])}</td><td>${x.votes}</td></tr>`).join('')}</tbody></table></div><div class="buttonline"><button class="btn" onclick="exportCSV()">Exportar CSV</button></div>`:`<div class="notice">Los ganadores permanecen ocultos hasta que cierres la votación. Todavía no hay listado final.</div>`}</div>`}}
-if(admin&&finalData){html+=`<div class="panel"><h3>👥 Gestión de participantes y papeletas</h3><p class="muted">Los códigos existentes no pueden visualizarse: por seguridad solo se pueden regenerar. Los nuevos códigos se muestran una única vez al administrador. Restablecer elimina todos los votos de la papeleta seleccionada; conceder una actualización adicional conserva sus votos.</p><div style="overflow-x:auto"><table class="results"><thead><tr><th>Piloto</th><th>Envíos</th><th>Operaciones</th></tr></thead><tbody>${(finalData.participants||PARTICIPANTS).map((name,i)=>{const info=finalData.participant_status?.[i]||{};return `<tr><td><strong>${esc(name)}</strong><br><small class="muted">Piloto ${i+1}</small></td><td>${info.submitted?'Enviada · '+info.updates+'/'+info.max_updates+' actualizaciones':'Sin papeleta'}</td><td><div class="buttonline"><button class="btn secondary" onclick="renameParticipant(${i})">Editar nombre</button><button class="btn secondary" onclick="rotateCode(${i})">Nuevo código</button><button class="btn secondary" ${info.submitted?'':'disabled'} onclick="grantUpdate(${i})">+1 actualización</button><button class="btn warn" ${info.submitted?'':'disabled'} onclick="resetBallot(${i})">Restablecer</button></div></td></tr>`}).join('')}</tbody></table></div><div class="notice">Al cambiar el nombre de un piloto, se conserva su ID y la totalidad de los votos. El acceso administrado requiere una clave secreta configurada en el servidor.</div></div>`}
+if(admin&&finalData){html+=`<div class="panel"><h3> Gestión de participantes y papeletas</h3><p class="muted">Los códigos existentes no pueden visualizarse: por seguridad solo se pueden regenerar. Los nuevos códigos se muestran una única vez al administrador. Restablecer elimina todos los votos de la papeleta seleccionada; conceder una actualización adicional conserva sus votos.</p><div style="overflow-x:auto"><table class="results participant-table"><thead><tr><th>Piloto</th><th>Envíos</th><th>Operaciones</th></tr></thead><tbody>${(finalData.participants||PARTICIPANTS).map((name,i)=>{const info=finalData.participant_status?.[i]||{};return `<tr><td data-label="Piloto"><strong>${esc(name)}</strong><br><small class="muted">Piloto ${i+1}</small></td><td data-label="Envíos">${info.submitted?'Enviada: '+info.updates+'/'+info.max_updates+' actualizaciones':'Sin papeleta'}</td><td data-label="Operaciones"><div class="buttonline"><button class="btn secondary" onclick="renameParticipant(${i})">Editar nombre</button><button class="btn secondary" onclick="rotateCode(${i})">Nuevo código</button><button class="btn secondary" ${info.submitted?'':'disabled'} onclick="grantUpdate(${i})">+1 actualización</button><button class="btn warn" ${info.submitted?'':'disabled'} onclick="resetBallot(${i})">Restablecer</button></div></td></tr>`}).join('')}</tbody></table></div><div class="notice">Al cambiar el nombre de un piloto, se conserva su ID y la totalidad de los votos. El acceso administrado requiere una clave secreta configurada en el servidor.</div></div>`}
 box.innerHTML=html}
 async function adminLogin(){const key=prompt('Contraseña administrativa:');if(key===null||!key)return;adminKey=key;try{finalData=await api('admin',{admin_key:adminKey});syncParticipants(finalData);admin=true;renderResults()}catch(e){adminKey='';alert(e.message)}}
 async function adminLoad(){try{finalData=await api('admin',{admin_key:adminKey});syncParticipants(finalData);renderResults()}catch(e){alert(e.message)}}
@@ -202,6 +132,6 @@ async function rotateCode(id){if(!confirm('¿Revocar el código actual de '+PART
 async function grantUpdate(id){if(!confirm('¿Conceder una actualización adicional a '+PARTICIPANTS[id]+' sin borrar sus votos?'))return;await adminOperation('grant_update',id)}
 async function resetBallot(id){const check=prompt('Se eliminarán los votos actuales de '+PARTICIPANTS[id]+'. Escribe RESTABLECER para confirmar:');if(check!=='RESTABLECER')return;await adminOperation('reset_ballot',id)}
 function exportCSV(){if(!finalData?.closed)return;const rows=[['Participante','Personaje','Votos'],...finalData.assignments.map(x=>[PARTICIPANTS[x.person],CHARACTERS[x.character][0],x.votes])];const csv='\ufeff'+rows.map(r=>r.map(x=>'"'+String(x).replace(/"/g,'""')+'"').join(';')).join('\r\n');const url=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download='VZOR-Karting-Cup-2026-Resultados.csv';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)}
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(document.getElementById('invitation-root').innerHTML)hideInvitation();else if(modalPerson!==null)closeModal()}});
+document.addEventListener('keydown',e=>{if(e.key==='Tab'){const overlay=document.querySelector('.access-invite-dialog,.modal-overlay');if(overlay){const targets=[...overlay.querySelectorAll('button:not(:disabled),[href],input:not(:disabled),[tabindex="0"]')];const first=targets[0],last=targets[targets.length-1];if(e.shiftKey&&(document.activeElement===first||!overlay.contains(document.activeElement))){e.preventDefault();last?.focus()}else if(!e.shiftKey&&(document.activeElement===last||!overlay.contains(document.activeElement))){e.preventDefault();first?.focus()}}}if(e.key==='Escape'){if(document.getElementById('invitation-root').innerHTML)hideInvitation();else if(modalPerson!==null)closeModal()}});
 show('access');
 </script></body></html>

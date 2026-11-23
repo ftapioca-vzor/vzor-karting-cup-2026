@@ -1,0 +1,23 @@
+/* Hallmark · brand tokens: VZOR · source: Manual de Marca, pages 8, 11, 12 · v2.0.0 */
+:root {
+ --color-briefing-scrim:rgba(234,242,249,.98); --color-briefing-fade:rgba(234,242,249,.12); --color-briefing-clear:rgba(234,242,249,0);
+ --font-name: 'Poppins'; --font-body:'Poppins',system-ui,sans-serif; --font-display:var(--font-body);
+ --brand-navy:#003C71; --brand-cyan:#00B5E2; --brand-blue:#2B7DE1; --brand-gray:#D0D0CE;
+ --color-paper:#fcfdff; --color-paper-2:#eaf2f9; --color-paper-3:#f1f5fa;
+ --color-ink:#17344e; --color-ink-2:#234b70; --color-muted:#526b82; --color-rule:#cbd9e5;
+ --color-on-dark:#f7fbff; --color-on-dark-muted:#d0e2f3; --color-on-dark-rule:#527b9e;
+ --color-accent:var(--brand-navy); --color-accent-ink:var(--color-on-dark); --color-focus:#00759b;
+ --color-control-border:#6b8195; --color-action-hover:#00528f; --color-dark-hover:#174e7b;
+ --color-disabled:#e4ebf2; --color-overlay:rgba(0,30,60,.78);
+ --color-error:#9f293b; --color-error-soft:#fff0f2; --color-success:#206746; --color-success-soft:#eaf6ef;
+ --space-3xs:2px; --space-2xs:4px; --space-xs:8px; --space-sm:12px; --space-md:16px; --space-lg:24px; --space-xl:40px; --space-2xl:64px; --space-3xl:96px;
+ --text-xs:.75rem; --text-sm:.875rem; --text-md:1rem; --text-lg:1.2rem; --text-xl:1.44rem; --text-2xl:1.728rem; --text-3xl:2.488rem;
+ --text-display:var(--text-xl); --text-section:var(--text-2xl); --text-title:var(--text-lg); --text-lead:var(--text-md);
+ --display-weight:700; --tracking-display:-.025em; --container:1280px; --gutter:40px; --gap-columns:24px;
+ --radius-card:16px; --radius-input:8px; --radius-pill:999px; --z-modal:400;
+ --dur-micro:120ms; --dur-short:220ms; --dur-long:420ms;
+}
+
+@font-face{font-family:'Poppins';src:url('./assets/fonts/poppins-regular.ttf') format('truetype');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Poppins';src:url('./assets/fonts/poppins-medium.ttf') format('truetype');font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:'Poppins';src:url('./assets/fonts/poppins-bold.ttf') format('truetype');font-weight:700;font-style:normal;font-display:swap}

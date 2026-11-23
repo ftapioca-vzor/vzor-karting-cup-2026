@@ -1,0 +1,17 @@
+# Local Hallmark review artifacts
+.hallmark/before/
+.hallmark/shots/
+.hallmark/qa/
+.hallmark/before.json
+.hallmark/before.txt
+.hallmark/compare.html
+# Private configuration
+.env
+.env.*
+.DS_Store
+
+# Local design previews are never published
+rediseno/
+demo.html
+demo-local.js
+LEEME-PRUEBA-LOCAL.txt

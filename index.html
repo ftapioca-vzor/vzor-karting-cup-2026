@@ -67,12 +67,18 @@ body.modal-open{overflow:hidden}
 .access-invite-dialog .invite-close{display:block;margin:0 0 8px auto}
 @media(max-width:780px){.access-layout{grid-template-columns:1fr}.event-facts{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:430px){.event-facts{grid-template-columns:1fr}.access-lead{font-size:14px}}
+/* El único contenido visible antes de autenticar es el panel de acceso. */
+body.pre-auth header,body.pre-auth nav,body.pre-auth .foot{display:none!important}
+body.pre-auth main{max-width:500px;min-height:100dvh;display:grid;align-items:center;padding:26px 16px}
+body.pre-auth .access-login{margin:0}
+body.pre-auth #vote,body.pre-auth #results{display:none!important}
+.briefing-actions{margin-top:14px}
 .results td .buttonline{display:flex;gap:5px;flex-wrap:wrap}.results td .btn{padding:7px 9px;font-size:11px}.results td{vertical-align:top}
 </style>
 </head>
-<body>
-<header><div class="eyebrow">VZOR® KARTING CUP</div><h1>VZOR® KARTING CUP 2026 🏁</h1><b style="color:var(--cyan)">LA PARRILLA DE PERSONALIDADES</b><p class="muted">19 colegas · 25 personajes · 18 asignaciones por piloto</p></header>
-<nav aria-label="Navegación"><button id="tab-access" onclick="show('access')">01 · Acceso</button><button id="tab-vote" onclick="show('vote')">02 · Papeleta</button><button id="tab-results" onclick="show('results')">03 · Control</button></nav>
+<body class="pre-auth">
+<header><div class="eyebrow">VZOR® KARTING CUP</div><h1>VZOR® KARTING CUP 2026 🏁</h1><b style="color:var(--cyan)">LA PARRILLA DE PERSONALIDADES</b><p class="muted">LA PARRILLA SE DEFINE ANTES DE LA CARRERA</p></header>
+<nav aria-label="Navegación"><button id="tab-access" onclick="show('access')">01 · Inicio</button><button id="tab-vote" onclick="show('vote')">02 · Papeleta</button><button id="tab-results" onclick="show('results')">03 · Control</button></nav>
 <main><section id="access"></section><section id="vote" class="hidden"></section><section id="results" class="hidden"></section></main>
 <div id="modal-root"></div><div id="invitation-root"></div><div class="foot">VZOR® · FIESTA DE NAVIDAD 2026 · LA PARRILLA SE DEFINE ANTES DE LA CARRERA</div>
 <script>
@@ -119,16 +125,46 @@ async function api(action,payload={}){
  const controller=new AbortController();const timeout=setTimeout(()=>controller.abort(),15000);
  try{const r=await fetch(API_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action,...payload}),signal:controller.signal});let value=await r.json().catch(()=>({error:'Respuesta no válida del servidor'}));if(!r.ok||value.error)throw Error(value.error||'No se pudo procesar la solicitud');return value}finally{clearTimeout(timeout)}
 }
-function show(page){closeModal();for(const id of ['access','vote','results']){document.getElementById(id).classList.toggle('hidden',id!==page);document.getElementById('tab-'+id).setAttribute('aria-current',id===page?'page':'false')}({access:renderAccess,vote:renderVote,results:renderResults})[page]()}
-function renderAccess(){document.getElementById('access').innerHTML=`
-<div class="access-layout"><div><div class="panel access-hero"><div class="access-kicker">🎄 LA NAVIDAD SE CORRE EN EQUIPO</div><h2>Antes de encender los motores…<br><span style="color:var(--cyan)">hay que descubrir quién es quién.</span></h2>
+function show(page){
+ // Sin sesión validada no se puede navegar a la papeleta ni a administración.
+ if(currentUser===null && page!=='access')page='access';
+ closeModal();
+ document.body.classList.toggle('pre-auth',currentUser===null);
+ for(const id of ['access','vote','results']){
+  document.getElementById(id).classList.toggle('hidden',id!==page);
+  document.getElementById('tab-'+id).setAttribute('aria-current',id===page?'page':'false');
+ }
+ ({access:renderAccess,vote:renderVote,results:renderResults})[page]();
+}
+function eventBriefing(){return `
+<div class="panel access-hero"><div class="access-kicker">🎄 LA NAVIDAD SE CORRE EN EQUIPO</div>
+<h2>Antes de encender los motores…<br><span style="color:var(--cyan)">hay que descubrir quién es quién.</span></h2>
 <p class="access-lead">Este 18 de diciembre, VZOR® cambia las reuniones por una pista de karting. Antes de la largada tenemos una misión: <span class="access-highlight">darle a cada colega su personaje para la Karting Cup.</span></p>
 <p class="muted">¿Quién tiene alma de Bowser? ¿Quién vive tan relajado como Funky Kong? ¿Y quién sorprende a todos como Luigi? Tú decides cómo se arma nuestra parrilla.</p>
-<div class="event-facts"><div class="event-fact"><small>📅 CUÁNDO</small><strong>Viernes 18 de diciembre</strong><small>2026 · 10:30 a 16:00 hrs</small></div><div class="event-fact"><small>📍 DÓNDE</small><strong>GoKarts.cl</strong><small>Calle Valenzuela Puelma 9500, Santiago</small></div></div><button type="button" class="access-poster-button" onclick="showInvitation()">🎁 Ver invitación del evento</button></div>
-<div class="panel"><div class="access-kicker">TU MISIÓN EN 4 PASOS</div><h3>Instrucciones para pilotos</h3><ol class="access-steps"><li><span><b>Ingresa tu código personal.</b> Úsalo cada vez que quieras revisar tu papeleta.</span></li><li><span><b>Elige a un compañero.</b> Se abrirá un modal con 25 personajes; no podrás asignarte uno a ti mismo.</span></li><li><span><b>Arma tu parrilla.</b> Asigna 18 personajes diferentes. Los ocupados quedan atenuados dentro del modal.</span></li><li><span><b>Vuelve cuando quieras.</b> Consulta tu Top 3 personal y modifica tu papeleta hasta tres veces tras el envío inicial.</span></li></ol></div></div>
-<div class="panel access-login"><div style="font-size:39px">🏎️</div><div class="access-kicker">ACCESO A LA PARRILLA</div><h2>¿Listo para la largada?</h2><p class="muted">Tu voto ayuda a definir qué personaje representará a cada colega. La distribución definitiva se revelará en el evento.</p><label for="code">Tu código de piloto</label><input id="code" class="field" autocomplete="off" placeholder="Ingresa tu código individual" aria-describedby="access-error" onkeydown="if(event.key==='Enter')login()"><div id="access-error" class="error" aria-live="polite"></div><button class="btn" id="login-button" onclick="login()">ENTRAR A LA PISTA →</button><p class="input-help">Puedes ingresar cuantas veces quieras. Solo las actualizaciones de una papeleta ya enviada tienen límite.</p><div class="access-count"><span>👥 19 pilotos</span><span>🎭 25 personajes</span><span>🔒 Voto reservado</span></div><div class="notice">🎁 <b>La sorpresa es parte del juego.</b> Verás los tres personajes que más te asignen, pero la identidad final se reserva para el evento.</div></div></div>`}
-async function login(){const input=document.getElementById('code'),button=document.getElementById('login-button'),error=document.getElementById('access-error');error.textContent='';const submitted=input.value.trim();if(!submitted)return error.textContent='Ingresa tu código individual.';button.disabled=true;try{const data=await api('login',{code:submitted});code=submitted;syncParticipants(data);state=data;currentUser=data.participant;draft={};editing=!data.record;show('vote')}catch(e){error.textContent=e.message}finally{button.disabled=false}}
-function showInvitation(){document.getElementById('invitation-root').innerHTML=`<div class="access-invite-dialog" onclick="if(event.target===this)hideInvitation()"><div class="invite-wrap"><button class="btn secondary invite-close" onclick="hideInvitation()">✕ Cerrar</button><img class="access-invite" src="assets/invitacion-navidad-vzor-2026.png" alt="Invitación Navidad VZOR 2026"></div></div>`}
+<div class="event-facts"><div class="event-fact"><small>📅 CUÁNDO</small><strong>Viernes 18 de diciembre</strong><small>2026 · 10:30 a 16:00 hrs</small></div><div class="event-fact"><small>📍 DÓNDE</small><strong>GoKarts.cl</strong><small>Calle Valenzuela Puelma 9500, Santiago</small></div></div>
+<button type="button" class="access-poster-button" onclick="showInvitation()">🎁 Ver invitación del evento</button></div>
+<div class="panel"><div class="access-kicker">TU MISIÓN EN 4 PASOS</div><h3>Instrucciones para pilotos</h3>
+<ol class="access-steps"><li><span><b>Ya ingresaste con tu código personal.</b> Puedes volver cada vez que quieras.</span></li>
+<li><span><b>Elige a un compañero.</b> Se abrirá un modal con 25 personajes; no podrás asignarte uno a ti mismo.</span></li>
+<li><span><b>Arma tu parrilla.</b> Asigna 18 personajes diferentes. Los ocupados quedan atenuados dentro del modal.</span></li>
+<li><span><b>Vuelve cuando quieras.</b> Consulta tu Top 3 personal y modifica tu papeleta hasta tres veces tras el envío inicial.</span></li></ol></div>`}
+function renderAccess(){
+ const node=document.getElementById('access');
+ if(currentUser!==null){
+  node.innerHTML=eventBriefing()+`<div class="buttonline briefing-actions"><button class="btn" onclick="show('vote')">IR A MI PAPELETA →</button><button class="btn secondary" onclick="logout()">Cerrar sesión</button></div>`;
+  return;
+ }
+ node.innerHTML=`<div class="panel access-login"><div style="font-size:39px">🏎️</div>
+ <div class="access-kicker">VZOR® KARTING CUP 2026</div><h2>Acceso a la parrilla</h2>
+ <p class="muted">Ingresa tu código personal para continuar.</p>
+ <label for="code">Tu código de piloto</label>
+ <input id="code" class="field" autocomplete="off" placeholder="Ingresa tu código individual" aria-describedby="access-error" onkeydown="if(event.key==='Enter')login()">
+ <div id="access-error" class="error" aria-live="polite"></div>
+ <button class="btn" id="login-button" onclick="login()">ENTRAR A LA PISTA →</button>
+ <p class="input-help">Tu código es personal. Puedes ingresar cuantas veces quieras.</p></div>`;
+}
+async function login(){const input=document.getElementById('code'),button=document.getElementById('login-button'),error=document.getElementById('access-error');error.textContent='';const submitted=input.value.trim();if(!submitted)return error.textContent='Ingresa tu código individual.';button.disabled=true;try{const data=await api('login',{code:submitted});code=submitted;syncParticipants(data);state=data;currentUser=data.participant;draft={};editing=!data.record;show('access')}catch(e){error.textContent=e.message}finally{button.disabled=false}}
+function showInvitation(){if(currentUser===null)return;document.getElementById('invitation-root').innerHTML=`<div class="access-invite-dialog" onclick="if(event.target===this)hideInvitation()"><div class="invite-wrap"><button class="btn secondary invite-close" onclick="hideInvitation()">✕ Cerrar</button><img class="access-invite" src="assets/invitacion-navidad-vzor-2026.png" alt="Invitación Navidad VZOR 2026"></div></div>`}
 function hideInvitation(){document.getElementById('invitation-root').innerHTML=''}
 function colleagues(){return PARTICIPANTS.map((name,id)=>({name,id})).filter(p=>p.id!==currentUser)}
 function isComplete(values){const pairs=Object.entries(values);const valid=new Set(colleagues().map(p=>String(p.id)));return pairs.length===18&&pairs.every(([p,c])=>valid.has(p)&&Number.isInteger(c)&&c>=0&&c<25)&&new Set(pairs.map(([,c])=>c)).size===18}
